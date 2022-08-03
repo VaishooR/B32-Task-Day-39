@@ -14,11 +14,20 @@ Find the number of users who are absent and task is not submitted  between 15 oc
 
 
 
+
+
 QUERIES:
 
 db.mentor.find({month:"October"},{topic:1,task:1,month:1,_id:0}).toArray();
+
 db.companies.find({date:{$gte:'2020-10-15',$lte:'2020-10-31'}},{company:1,date:1,_id:0}).toArray();
+
 db.companies.find({},{company:1,"students_appeared":1,_id:0}).toArray();
+
 db.users.find({batch:"b32"},{name:1,"codekata.solved":1,_id:0});
+
 db.mentor.find({"mentees_count":{$gt:15}},{mentor:1,"mentees_count":1,_id:0}).toArray();
+
 db.users.find({$and:[{attendance: "absent"},{"task-submit-date":{$gte:'2020-10-15',$lte:'2020-10-31'}}]}).toArray();
+
+
